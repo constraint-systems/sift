@@ -224,3 +224,31 @@ export function saveImage() {
     )
   })
 }
+
+export function onDrop(e) {
+  e.preventDefault()
+  e.stopPropagation()
+  let file = e.dataTransfer.files[0]
+  let filename = file.path ? file.path : file.name ? file.name : ''
+  let src = URL.createObjectURL(file)
+  loadImage(src)
+}
+
+export function onDrag(e) {
+  e.stopPropagation()
+  e.preventDefault()
+  e.dataTransfer.dropEffect = 'copy'
+}
+
+export function onPaste(e) {
+  e.preventDefault()
+  e.stopPropagation()
+  for (const item of e.clipboardData.items) {
+    if (item.type.indexOf('image') < 0) {
+      continue
+    }
+    let file = item.getAsFile()
+    let src = URL.createObjectURL(file)
+    loadImage(src)
+  }
+}

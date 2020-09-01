@@ -35,7 +35,7 @@
     ></div>
     <div id="controls">
       <div id="controls_inner">
-        <div style="display: flex">
+        <div class="mobile_spacer" style="display: flex">
           <div style="margin-right: 32px;">
             <div class="hspacer"></div>
             <div><button onclick="trigger('o')">o</button> load image</div>
@@ -43,7 +43,7 @@
             <div><button onclick="trigger('p')">p</button> save image</div>
             <div class="hspacer"></div>
           </div>
-          <div style="margin-right: 32px; position: relative;">
+          <div style="margin-right: 32px; height: 64px; position: relative;">
             <div
               style="position: absolute; left: 7px; top: 7px; border: solid 2px #222; right: 7px; bottom: 7px;"
             ></div>
@@ -73,11 +73,11 @@
                   ↓
                 </button>
               </div>
-              <div class="hspacer"></div>
             </div>
+            <div class="hspacer"></div>
           </div>
         </div>
-        <div style="display: flex">
+        <div class="mobile_spacer" style="display: flex">
           <div style="margin-right: 32px;">
             <div class="hspacer"></div>
             <div>
@@ -102,7 +102,7 @@
               <button onclick="trigger('+')">+</button>
             </div>
           </div>
-        <div style="">
+        <div>
           <div class="hspacer"></div>
           <div>
             <button id="info_button" onclick="trigger('i')">i</button>
@@ -132,7 +132,7 @@
         </p>
         <p>
           <img
-            style="float: right; width: 96px; margin-left: 2ch; margin-bottom: 16px;"
+            style="float: right; width: 96px; margin-left: 2ch; margin-bottom: 16px; opacity: 0.5;"
             src="sift-logo.png"
           />
           Sift uses additive blending and a pixel based light-splitting

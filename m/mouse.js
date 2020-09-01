@@ -1,5 +1,5 @@
 import state from '/m/state.js'
-import { setOffsetReadout } from '/m/actions.js'
+import { setOffsetReadout, onDrag, onDrop, onPaste } from '/m/actions.js'
 import { render } from '/m/render.js'
 
 function unifyMove(newx, newy) {
@@ -63,4 +63,8 @@ export function initMouse(e) {
   $mouse.addEventListener('mousedown', mouseDown)
   $mouse.addEventListener('mousemove', mouseMove)
   $mouse.addEventListener('mouseup', mouseUp)
+
+  window.addEventListener('paste', onPaste)
+  window.addEventListener('dragover', onDrag)
+  window.addEventListener('drop', onDrop)
 }
