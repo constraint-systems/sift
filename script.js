@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
   setShowControls(true)
   setShowInfo(true)
 
-  loadImage('akira.jpg')
+  loadImage('bowie.jpg')
   initKeyboard()
   initMouse()
 })
