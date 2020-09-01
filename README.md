@@ -1,4 +1,4 @@
-Sift
+# Sift
 
 <img 
   src='https://raw.githubusercontent.com/constraint-systems/sift/master/sift.gif'
