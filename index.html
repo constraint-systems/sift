@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sift</title>
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>{title}</title>
+    <meta name="description" content="{description}" />
+    <meta property="og:title" content="{title}" />
+    <meta property="og:description" content="{description}" />
+    <meta property="og:image" content="{share_img_url}" />
+    <meta property="og:url" content="{og_url}" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" type="module"></script>
+  </head>
+  <body>
+    <input
+      type="file"
+      id="file_input"
+      style="display: none;"
+      accept="image/*"
+    />
+    <canvas id="render"></canvas>
+    <div
+      id="mouse_catcher"
+      style="position: fixed; left: 0; top: 0; right: 0; bottom: 0;"
+    ></div>
+    <div id="controls">
+      <div id="controls_inner">
+        <div style="display: flex">
+          <div style="margin-right: 32px;">
+            <div class="hspacer"></div>
+            <div><button onclick="trigger('o')">o</button> load image</div>
+            <div class="spacer"></div>
+            <div><button onclick="trigger('p')">p</button> save image</div>
+            <div class="hspacer"></div>
+          </div>
+          <div style="margin-right: 32px; position: relative;">
+            <div
+              style="position: absolute; left: 7px; top: 7px; border: solid 2px #222; right: 7px; bottom: 7px;"
+            ></div>
+            <div style="position: relative">
+              <div style="margin-left: 4.5ch">
+                <button style="margin-left: 16px;" onclick="trigger('ArrowUp')">
+                  ↑
+                </button>
+              </div>
+              <div class="hspacer"></div>
+              <div style="display: flex">
+                <button onclick="trigger('ArrowLeft')">←</button>
+                <div
+                  id="offset_readout"
+                  style="width: 11ch; text-align: center;"
+                >
+                  4,6
+                </div>
+                <button onclick="trigger('ArrowRight')">→</button>
+              </div>
+              <div class="hspacer"></div>
+              <div style="margin-left: 4.5ch">
+                <button
+                  style="margin-left: 16px;"
+                  onclick="trigger('ArrowDown')"
+                >
+                  ↓
+                </button>
+              </div>
+              <div class="hspacer"></div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex">
+          <div style="margin-right: 32px;">
+            <div class="hspacer"></div>
+            <div>
+              <button onclick="trigger('<')"><</button>
+              layers:
+              <span
+                id="layers_readout"
+                style="display: inline-block; width: 3ch; text-align: right;"
+                >8</span
+              >
+              <button onclick="trigger('>')">></button>
+            </div>
+            <div class="spacer"></div>
+            <div>
+              <button onclick="trigger('-')">-</button>
+              zoom:
+              <span
+                id="zoom_readout"
+                style="display: inline-block; width: 5ch; text-align: right;"
+                >100%</span
+              >
+              <button onclick="trigger('+')">+</button>
+            </div>
+          </div>
+        <div style="">
+          <div class="hspacer"></div>
+          <div>
+            <button id="info_button" onclick="trigger('i')">i</button>
+          </div>
+          <div class="spacer"></div>
+          <div>
+            <button class="active" onclick="trigger('?')">?</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div id="hidden_control_toggle">
+      <button onclick="trigger('?')">?</button>
+    </div>
+    <div id="info_box">
+      <div
+        style="display: flex; justify-content: space-between; padding: 0.5ch 1ch; background: #222;"
+      >
+        <div>Info</div>
+        <div><button onclick="trigger('x')">x</button></div>
+      </div>
+      <div style="padding: 2ch 2ch 0 2ch;">
+        <p>
+          Sift slices an image into multiple layers. You can offset the slices
+          to create interference patterns and pseudo-3D effects.
+        </p>
+        <p>
+          <img
+            style="float: right; width: 96px; margin-left: 2ch; margin-bottom: 16px;"
+            src="sift-logo.png"
+          />
+          Sift uses additive blending and a pixel based light-splitting
+          algorithm, learn more about how it works in
+          <a href="#">the release notes</a> or <a href="#">video tour</a>.
+        </p>
+        <p>
+          Use the keyboard controls or click the buttons below to open, adjust,
+          and save an image. You can also click and drag the image itself to set
+          the offset.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

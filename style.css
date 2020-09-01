@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Consolas', 'Andale Mono WT', 'Andale Mojo',
+    'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
+    'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco,
+    'Courier New', Courier, monospace;
+  font-size: 13.333px;
+  line-height: 16px;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+}
+html {
+  background: #000;
+}
+img,
+canvas {
+  display: block;
+  position: relative;
+}
+p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2ch;
+}
+a {
+  color: inherit;
+}
+
+#render {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#controls {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.4);
+  /* border-radius: 32px; */
+  height: 80px;
+  padding: 8px 0;
+  display: flex;
+  color: #bbb;
+  padding-left: 16px;
+  padding-right: 16px;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 0);
+  width: 63ch;
+}
+#hidden_control_toggle {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+#info_box {
+  width: 36ch;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.4);
+  right: 32px;
+  top: 64px;
+  color: #bbb;
+}
+
+button {
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  line-height: 14px;
+  /* border: solid 1px #666; */
+  background: #888;
+  color: #000;
+}
+button.link {
+  padding: 0;
+  border: none;
+  text-decoration: underline;
+}
+button.active,
+.active button {
+  background: #222;
+  color: #bbb;
+  text-decoration: none;
+}
+
+/* Spacers */
+.spacer,
+.hspacer,
+.qspacer {
+  width: 100%;
+}
+.spacer {
+  height: 16px;
+}
+.hspacer {
+  height: 8px;
+}
+.qspacer {
+  height: 4px;
+}
+
+#controls_inner {
+  display: flex;
+}
+@media (max-width: 540px) {
+  #info_box {
+    right: 16px;
+    top: 16px;
+  }
+  #controls {
+    height: 152px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    transform: translate(0, 0);
+  }
+  #controls_inner {
+    display: block;
+  }
+}
