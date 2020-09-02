@@ -128,7 +128,6 @@ export function loadImage(src) {
     let cx = canvas.getContext('2d')
     // here need to use original (not adjust image size)
     cx.drawImage(img, 0, 0, img.width, img.height, 0, 0, w, h)
-    // document.body.appendChild(canvas)
     let image_data = cx.getImageData(0, 0, w, h)
     state.img = { width: w, height: h }
     state.image_data = image_data
@@ -189,8 +188,11 @@ export function inputLoadImage() {
         continue
       }
       let src = URL.createObjectURL(item)
+      // reset for new image
       state.x_offset = 0
       state.y_offset = 0
+      state.zoom = 1
+      state.layer_num = 16
       loadImage(src)
     }
     this.removeEventListener('change', handleChange)
@@ -212,7 +214,7 @@ export function saveImage() {
   rx.canvas.toBlob(function(blob) {
     link.setAttribute(
       'download',
-      'strafe-' + Math.round(new Date().getTime() / 1000) + '.png'
+      'sift-' + Math.round(new Date().getTime() / 1000) + '.png'
     )
     link.setAttribute('href', URL.createObjectURL(blob))
     link.dispatchEvent(
