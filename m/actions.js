@@ -101,7 +101,7 @@ export function loadImage(src) {
   img.onload = function() {
     let w = img.width
     let h = img.height
-    if (img.width > 1280 || img.height > 1280) {
+    if (img.width > limit || img.height > limit) {
       let aspect = w / h
       let nw, nh
       if (aspect > 1) {
